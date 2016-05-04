@@ -8,21 +8,27 @@
 <!--meta http-equiv="Cache-control" content="no-cache"-->
 <meta http-equiv="Expires" content="Mon,1 Jan 2001 0:0:0 UTC">   
 <META HTTP-EQUIV="Cache-Control" CONTENT="no-store, must-revalidate"> 
-	<title>首页</title>
+	<title>首页o</title>
+	
+	
+	   
+	
 	<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.5/themes/default/easyui.css">
 	<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.5/themes/icon.css">
 	<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.5/demo/demo.css">
 	<script type="text/javascript" src="jquery-easyui-1.4.5/jquery.min.js"></script>
 	<script type="text/javascript" src="jquery-easyui-1.4.5/jquery.easyui.min.js"></script>
 	<script type="text/javascript" src="js/webui.js"></script>
+	
+ <link rel="stylesheet" type="text/css" href="css/css.css">
 </head>
 <body  style="padding:0">
 	 
  
     
 	<div class="easyui-layout" style="width:100%;" id="mylayer" data-options="fit:true,border:false">
-		<div data-options="region:'north'" style="height:30px" >
-			<div style="padding:0px;width:100%;border:0px solid #ccc">
+		<div data-options="region:'north'" style="height:50px ;  background-color : rgb(3,157,222) ; " >
+			<!--<div style="padding:0px;width:100%;border:0px solid #ccc">
 				<a href="#" class="easyui-menubutton" menu="#mm1" iconCls="icon-edit">Edit</a>
 				 <a href="#" class="easyui-menubutton" menu="#mm2" iconCls="icon-help">Help</a>
 				</div>
@@ -41,20 +47,33 @@
 				 <div>Help</div>
 				 <div>Update</div>
 				 <div>About</div>
-				</div>
+				</div>-->
+			<div class="headleft" > 
+			<img src="img/logo.png" />
+			</div>
+			
+			<div class="headmiddle" > 
+			</div>
+			
+			<div class="headright" > 
+			<a href = "#"  ><img src="img/action1.PNG" border="0" /> </a>
+			<a href = "#"   ><img src="img/action1.PNG"  border="0"/></a>
+			<img src="img/action1.PNG" />
+			<img src="img/action1.PNG" />
+			</div>
 
 		
 		</div>
 		<div data-options="region:'south',split:true" style="height:30px;"></div>
 		<div data-options="region:'east',split:true" title="东方" style="width:180px;">
-		<div class="easyui-accordion" data-options="fit:true,border:false">
-		<div title="Title1" style="padding:1px;">
-					<div class="easyui-tabs" data-options="fit:true,border:true,plain:true">
-						<div title="Abou12" data-options="href:'aaaa.html'" style="padding:10px"></div>
-						<div title="DataGrid12" style="padding:5px"></div>
+		<div id="tt" class="easyui-accordion" data-options="fit:true,border:false">
+		<div title="Title1" style="padding:1px;"  data-options="selected:true">
+					<div  id="sstab1" class="easyui-tabs" data-options="fit:true,border:true,plain:true"  >
+						<div title="Abou12" data-options="href:'aaaa11.html'" style="padding:10px"></div>
+						<div  id="atab1"  title="DataGrid12" style="padding:5px"     ></div>
 					</div>
 				</div>
-				<div title="Title2" data-options="selected:true" style="padding:10px;">
+				<div title="Title2"  style="padding:10px;" >
 					<ul class="easyui-tree" data-options="url:'json/tree_data1.json',method:'get',animate:true,dnd:true"></ul>
 				</div>
 			
@@ -63,7 +82,7 @@
 			<div class="easyui-accordion" data-options="fit:true,border:false">
 				<div title="Title1" style="padding:1px;">
 					<div class="easyui-tabs" data-options="fit:true,border:true,plain:true">
-						<div title="Abou1" data-options="href:'aaaa.html'" style="padding:10px"></div>
+						<div title="Abou1" data-options="href:'aaaa1.html'" style="padding:10px"></div>
 						<div title="DataGrid1" style="padding:5px"></div>
 					</div>
 				</div>
@@ -77,8 +96,10 @@
 		</div>
 		<div data-options="region:'center',title:'主要内容',iconCls:'icon-ok'">
 			<div class="easyui-tabs" data-options="fit:true,border:false,plain:true">
-				<div title="About" data-options="href:'aaaa.html'" style="padding:10px"></div>
-				<div title="DataGrid" style="padding:5px">
+				<div title="地图"   style="padding:10px"> <!--data-options="href:'aaaa1.html'"-->
+				<img src="img/map.png" />
+				</div>
+				<div title="数据表" style="padding:5px">
 					<table class="easyui-datagrid"
 							data-options="url:'json/datagrid_data1.json',method:'get',singleSelect:true,fit:true,fitColumns:true">
 						<thead>
@@ -101,3 +122,5 @@
  
 </body>
 </html>
+
+

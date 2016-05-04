@@ -1,0 +1,200 @@
+﻿ 
+
+<!DOCTYPE html>
+<html>
+<head>
+ 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Pragma" content="no-cache">
+
+<!--meta http-equiv="Cache-control" content="no-cache"-->
+<meta http-equiv="Expires" content="Mon,1 Jan 2001 0:0:0 UTC">   
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-store, must-revalidate"> 
+ <script type ="text/javascript" src ="http://api.map.baidu.com/api?v=2.0&ak=AaVEyQ1s0vCKXFTc6KD11nLb"></script>
+ <script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/changeMore.js"></script>
+	<title>首页11</title>
+
+	<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.5/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.5/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.5/demo/demo.css">
+	<script type="text/javascript" src="jquery-easyui-1.4.5/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery-easyui-1.4.5/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="js/webui.js"></script>
+     <script type="text/javascript">
+         
+          function moveto1(name, x, y, count, address, online) {
+              // 百度地图API功能
+              alert("aaa1");
+              var map = new BMap.Map("allmap");
+              alert("aaa1");
+              var offlineIcon = new BMap.Icon("http://202.127.26.252/pic/moped/error.gif", new BMap.Size(50, 50));
+              var myIcon = new BMap.Icon("http://developer.baidu.com/map/jsdemo/img/Mario.png", new BMap.Size(300, 157));
+
+              var point = new BMap.Point(121.558816666667, 31.1736);
+
+              map.centerAndZoom(point, 15);
+              alert("aaass");
+             
+              //           map.centerAndZoom("上海",15);
+              //左上角添加比例尺、缩放图标等
+              var top_left_control = new BMap.ScaleControl({ anchor: BMAP_ANCHOR_TOP_LEFT }); // 左上角，添加比例尺
+              var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
+              map.addControl(top_left_control);
+              map.addControl(top_left_navigation);
+              //添加城市列表控件
+              map.enableScrollWheelZoom();
+              map.enableInertialDragging();
+              map.enableContinuousZoom();
+              var size = new BMap.Size(60, 20);
+              map.addControl(new BMap.CityListControl({
+                  anchor: BMAP_ANCHOR_TOP_LEFT,
+                  offset: size
+              }));
+              //信息窗口
+              
+              var opts = {
+                  width: 320,     // 信息窗口宽度
+                  height: 150,     // 信息窗口高度
+                  title: "<h4 style='margin:0 0 5px 0;padding:0.2em 0'>基站信息：</h4>", // 信息窗口标题
+                  enableMessage: true//设置允许信息窗发送短息
+              };
+
+              var nameStr = name.split('$');
+              var xStr = x.split('$');
+              var yStr = y.split('$');
+              var addStr = address.split('$');
+              var onlineStr = online.split('$');
+              for (var i = 0; i < count; i++) {
+                  //            points[i] = new BMap.Point(xStr[i], yStr[i]); //定义一个中心点坐标
+                  var point = new BMap.Point(xStr[i], yStr[i]);
+                  //            data_info[i] =[xStr[i], yStr[i],addStr[i]]; //定义信息窗口内容
+                  //            var marker = new BMap.Marker(point, { icon: myIcon });
+                  var content = "基站地址：</br>" + addStr[i] + "</br>";
+
+                  content += "基站坐标：</br>" + "经：" + point.lng + ", " + "纬：" + point.lat + "</br>";
+
+                  //设备离线,更改离线图标,并显示设备离线时间
+                  if (onlineStr[i] == "0") {
+                      content += "离线时间：</br>" + nameStr[i] + "</br>";
+                      var marker = new BMap.Marker(point, { icon: offlineIcon });
+                      map.addOverlay(marker);
+                      addClickHandler(content, marker);
+                      map.setCenter(point); // 由于写了这句，每一个被设置的点都是中心点的过程 
+
+                  }
+                  else {
+
+                      var marker = new BMap.Marker(point);
+                      map.addOverlay(marker);
+                      addClickHandler(content, marker);
+                      map.setCenter(point); // 由于写了这句，每一个被设置的点都是中心点的过程 
+                  }
+
+
+
+              }
+
+              function addClickHandler(content, marker) {
+                  marker.addEventListener("click", function (e) {
+                      openInfo(content, e)
+                  }
+		);
+              }
+              function openInfo(content, e) {
+                  var p = e.target;
+                  var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+                  var infoWindow = new BMap.InfoWindow(content, opts);  // 创建信息窗口对象 
+                  map.openInfoWindow(infoWindow, point); //开启信息窗口
+              }
+
+          }
+		  $(document).ready(function(){
+          moveto1('2016-4-11 10:43:26$2016-4-11 10:41:29$2016-4-11 10:45:17$2016-4-11 10:42:59$2016-4-11 10:41:54$2016-4-11 10:41:13$2016-4-11 10:41:02$2016-4-11 10:40:38$2016-4-11 10:40:46$2016-4-11 10:41:02$2016-4-11 10:47:24$2016-4-11 10:42:41$2016-4-11 10:41:56$2016-4-5 13:31:03$', '121.56975773343$121.56918516829$121.56815022045$121.56711893992$121.56803073257$121.56906591484$121.56269495299$121.56991124153$121.52817096665$121.53015399593$121.52996109329$121.52877478332$121.527538941$121.59501355628$', '31.177388140915$31.177120794523$31.177058038423$31.178770510347$31.179189639955$31.1791654399$31.231210615538$31.178646325053$31.181653341401$31.182935137824$31.184016276369$31.185062657669$31.184389278089$31.192245673271$', '14', '高青路门口$7号楼$2号楼$37号楼$39号楼$28号楼$莲溪路门口$22号楼$125号楼$88号楼$63号楼$北艾路门口$49号楼$毕昇路339号$', '1$1$1$1$1$1$1$1$1$1$1$1$1$0$');
+});
+</script>  
+
+</head>
+<body  style="padding:0">
+	<div class="easyui-layout" style="width:100%;" id="mylayer" data-options="fit:true,border:false">
+		<div data-options="region:'north'" style="height:30px" >
+			<div style="padding:0px;width:100%;border:0px solid #ccc">
+				<a href="#" class="easyui-menubutton" menu="#mm1" iconCls="icon-edit">Edit</a>
+				 <a href="#" class="easyui-menubutton" menu="#mm2" iconCls="icon-help">Help</a>
+				</div>
+				<div id="mm1" style="width:150px;">
+				 <div iconCls="icon-undo">Undo</div>
+				 <div iconCls="icon-redo">Redo</div>
+				 <div class="menu-sep"></div>
+				 <div>Cut</div>
+				 <div>Copy</div>
+				 <div>Paste</div>
+				 <div class="menu-sep"></div>
+				 <div iconCls="icon-remove">Delete</div>
+				 <div>Select All</div>
+				</div>
+				<div id="mm2" style="width:100px;">
+				 <div>Help</div>
+				 <div>Update</div>
+				 <div>About</div>
+				</div>
+
+		
+		</div>
+		<div data-options="region:'south',split:true" style="height:30px;"></div>
+		<div data-options="region:'east',split:true" title="东方" style="width:180px;">
+		<div class="easyui-accordion" data-options="fit:true,border:false">
+		<div title="Title1" style="padding:1px;" data-options="selected:true">
+					<div class="easyui-tabs" data-options="fit:true,border:true,plain:true">
+						<div title="Abou12" data-options="href:'aaaa.html'" style="padding:10px"></div>
+						<div id="atab1" title="DataGrid12" style="padding:5px"></div>
+					</div>
+				</div>
+				<div title="Title2"  style="padding:10px;">
+					<ul class="easyui-tree" data-options="url:'json/tree_data1.json',method:'get',animate:true,dnd:true"></ul>
+				</div>
+			
+		</div></div>
+		<div data-options="region:'west',split:true" title="西方" style="width:300px;">
+			<div class="easyui-accordion" data-options="fit:true,border:false">
+				<div title="Title1" style="padding:1px;">
+					<div class="easyui-tabs" data-options="fit:true,border:true,plain:true">
+						<div title="Abou1" data-options="href:'aaaa.html'" style="padding:10px"></div>
+						<div title="DataGrid1" style="padding:5px"></div>
+					</div>
+				</div>
+				<div title="Title2" data-options="selected:true" style="padding:10px;">
+					content2
+				</div>
+				<div title="Title3" style="padding:10px">
+					content3
+				</div>
+			</div>
+		</div>
+		<div data-options="region:'center',title:'主要内容',iconCls:'icon-ok'">
+			<div class="easyui-tabs" data-options="fit:true,border:false,plain:true">
+				<div title="About"   style="padding:10px">
+                    <div id="allmap" style =" width :100% ; height :650px;" ></div> 
+                </div>
+				<div title="DataGrid" style="padding:5px">
+					<table class="easyui-datagrid"
+							data-options="url:'json/datagrid_data1.json',method:'get',singleSelect:true,fit:true,fitColumns:true">
+						<thead>
+							<tr>
+								<th data-options="field:'itemid'" width="80">Item ID</th>
+								<th data-options="field:'productid'" width="100">Product ID</th>
+								<th data-options="field:'listprice',align:'right'" width="80">List Price</th>
+								<th data-options="field:'unitcost',align:'right'" width="80">Unit Cost</th>
+								<th data-options="field:'attr1'" width="150">Attribute</th>
+								<th data-options="field:'status',align:'center'" width="50">Status</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+ 
+</body>
+</html>
