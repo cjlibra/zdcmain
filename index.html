@@ -20,6 +20,7 @@
 	<script type="text/javascript" src="jquery-easyui-1.4.5/jquery.easyui.min.js"></script>
 	<script type="text/javascript" src="js/webui.js"></script>
 	
+	
  <link rel="stylesheet" type="text/css" href="css/css.css">
 </head>
 <body  style="padding:0">
@@ -87,7 +88,13 @@
 					</div>
 				</div>
 				<div title="Title2" data-options="selected:true" style="padding:10px;">
-					content2
+					<div style="padding:5px;background:#fafafa;width:100px;border:1px solid #ccc">
+						<a href="javascript:do1();" class="easyui-linkbutton" iconCls="icon-cancel">Cancel</a>
+						<a href="javascript:do2();" class="easyui-linkbutton" iconCls="icon-reload">Refresh</a>
+						<a href="#" class="easyui-linkbutton" iconCls="icon-search">Query</a>
+						<a href="#" class="easyui-linkbutton">text button</a>
+						<a href="#" class="easyui-linkbutton" iconCls="icon-print">Print</a>
+					</div>
 				</div>
 				<div title="Title3" style="padding:10px">
 					content3
@@ -95,9 +102,35 @@
 			</div>
 		</div>
 		<div data-options="region:'center',title:'主要内容',iconCls:'icon-ok'">
-			<div class="easyui-tabs" data-options="fit:true,border:false,plain:true">
+			<div class="easyui-tabs" data-options="fit:true,border:false,plain:true" id="amaintab">
 				<div title="地图"   style="padding:10px"> <!--data-options="href:'aaaa1.html'"-->
 				<img src="img/map.png" />
+				<div style="border:1px solid #ccc;width:250px;position:absolute;left:0;top:30%;z-index:999; " id="zf_Box"      >
+				
+				<div style="padding:3px 2px;border-bottom:1px solid #ccc">Form Validation</div>
+					<form id="ff" method="post">
+						<div>
+							<label for="name">Name:</label>
+							<input class="easyui-validatebox" type="text" name="name" required="true"></input>
+						</div>
+						<div>
+							<label for="email">Email:</label>
+							<input class="easyui-validatebox" type="text" name="email" required="true" validType="email"></input>
+						</div>
+						<div>
+							<label for="subject">Subject:</label>
+							<input class="easyui-validatebox" type="text" name="subject" required="true"></input>
+						</div>
+						<div>
+							<label for="message">Message:</label>
+							<textarea name="message" style="height:60px;">;</textarea>
+						</div>
+						<div>
+							<input type="submit" value="Submit">
+						</div>
+						
+	</form></div>
+	 
 				</div>
 				<div title="数据表" style="padding:5px">
 					<table class="easyui-datagrid"
@@ -113,6 +146,9 @@
 							</tr>
 						</thead>
 					</table>
+				</div>
+				<div title="事件"   style="padding:10px">  
+				<p>你好你好你早早啊政府顶顶顶顶顶顶顶顶顶顶顶顶顶顶</p>
 				</div>
 			</div>
 		</div>
