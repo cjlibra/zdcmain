@@ -20,7 +20,8 @@
 		"text":"Program Files",
 		"children":[{
 			"id":121,
-			"text":"Intel"
+			"text":"Intels" ,
+			"iconCls":"icon-ok"
 		},{
 			"id":122,
 			"text":"Java",

@@ -1,6 +1,25 @@
  
  
+ 
 $(document).ready(function(){
+	 
+	  $("#tttree").tree({
+          
+          onClick:function(node){
+                alert(node.text);
+          }
+     });
+	 
+	 $('#tttable').datagrid({
+		 frozenColumns:[[
+			{field:'itemid', title:'Item id' ,width:140 },
+			{field:'productid' ,title:'product' ,width:140 },
+			 
+			 
+        ]],
+        
+		 
+	 });
    /*  var viewheight = $(window).height();
 	 var viewwidth = $(window).width();
 	 $("#mylayer").css("height",viewheight+"px!important");
@@ -28,6 +47,7 @@ $(document).ready(function(){
 		selected:true
 		}
 		});*/
+	
 			
 	$("#sstab1").tabs("select", 1);
 	
