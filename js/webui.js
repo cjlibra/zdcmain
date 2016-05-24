@@ -97,4 +97,30 @@ function do2(){
 	
 }
 
+function do3(){
+	alert("3");
+	 $("#mymydiv").prop("data-options","href:'b.html'");
+	console.log( $("#mymydiv").prop("data-options"));
+	
+	updateTab('b.html');
+	 // var tab = $('#tta').tabs('getSelected');
+	 //  tab.panel('refresh');
+}
+
+
+function updateTab(url)
+{
+
+    var tab = $('#sstab1').tabs('getTab',0);
+
+    $("#sstab1").tabs('update',{
+        tab: tab,
+        options:{
+
+            href: url
+        }
+    });
+    tab.panel('refresh');
+
+}
        

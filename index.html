@@ -70,7 +70,7 @@
 		<div   class="easyui-accordion" data-options="fit:true,border:false">
 		<div title="Title1" style="padding:1px;"  data-options="selected:true">
 					<div  id="sstab1" class="easyui-tabs" data-options="fit:true,border:true,plain:true"  >
-						<div title="Abou12" data-options="href:'aaaa11.html'" style="padding:10px"></div>
+						<div title="Abou12" data-options="href:'aaaa1.html'" style="padding:10px" onclick="alert('s')"></div>
 						<div  id="atab1"  title="DataGrid12" style="padding:5px"     ></div>
 					</div>
 				</div>
@@ -82,8 +82,9 @@
 		<div data-options="region:'west',split:true" title="西方" style="width:300px;">
 			<div class="easyui-accordion" data-options="fit:true,border:false">
 				<div title="Title1" style="padding:1px;">
-					<div class="easyui-tabs" data-options="fit:true,border:true,plain:true">
-						<div title="Abou1" data-options="href:'aaaa1.html'" style="padding:10px"></div>
+					<div id ="tta" class="easyui-tabs" data-options="fit:true,border:true,plain:true">
+						<div title="Abou1" data-options="href:'aaaa1.html?id=2'" style="padding:10px"  id="mymydiv">
+						</div>
 						<div title="DataGrid1" style="padding:5px"></div>
 					</div>
 				</div>
@@ -91,7 +92,7 @@
 					<div style="padding:5px;background:#fafafa;width:100px;border:1px solid #ccc">
 						<a href="javascript:do1();" class="easyui-linkbutton" iconCls="icon-cancel">Cancel</a>
 						<a href="javascript:do2();" class="easyui-linkbutton" iconCls="icon-reload">Refresh</a>
-						<a href="#" class="easyui-linkbutton" iconCls="icon-search">Query</a>
+						<a href="javascript:do3();" class="easyui-linkbutton" iconCls="icon-search">Query</a>
 						<a href="#" class="easyui-linkbutton">text button</a>
 						<a href="#" class="easyui-linkbutton" iconCls="icon-print">Print</a>
 					</div>
