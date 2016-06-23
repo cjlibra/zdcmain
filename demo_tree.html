@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.5/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.5/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.5/demo/demo.css">
+<link rel="stylesheet" type="text/css" href="css/css.css">
+<script type="text/javascript" src="jquery-easyui-1.4.5/jquery.min.js"></script>
+<script type="text/javascript" src="jquery-easyui-1.4.5/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="js/webui.js"></script>
+<title>嘉定工业区综合治理服务云平台</title>
+<script type="text/javascript">
+function fucGetNode(vTreeID){
+	var hTree = null;
+	if(vTreeID==null || vTreeID=="") return ;
+	hTree = $('#'+vTreeID);
+	if(hTree==null) return ;
+	var vNode = hTree.tree('getSelected');
+	if(vNode==null) return ;
+	var vText = vNode.text;
+	var s1    = "";
+	if(vNode.attributes!=null){
+		s1   = vNode.attributes.p1+","+vNode.attributes.p2;
+	}
+	alert("vText="+vText+"\ns1="+s1);
+}
+
+function fucClickTree(hNode){
+	if(hNode==null) return ;
+	var vText = hNode.text;
+	var s1    = "";
+	if(hNode.attributes!=null){
+		s1   = hNode.attributes.p1+","+hNode.attributes.p2;
+	}
+	alert("vText="+vText+"\ns1="+s1);
+}
+function fillTreeEx(vTreeID,aList){
+	var hTree = null;
+	if(vTreeID==null || vTreeID=="") return ;
+	hTree = $('#'+vTreeID);
+	if(hTree==null) return ;
+	hTree.tree('loadData',aList);
+	hTree.tree('expandAll');
+	
+	hTree.tree({
+	onClick: function(node){
+		fucClickTree(node);
+	}
+	});
+}
+
+function addChild(aList,vObj,vID,vText,vAttr){
+	var obj = new Object();
+	obj.id   = vID;
+	obj.text = vText;
+	if(vAttr!=null) obj.attributes = vAttr;
+	if(vObj==null){
+		aList[aList.length] = obj;
+	}else{
+		if(vObj.children == null){
+			vObj.children = new Array();
+		}
+		vObj.children[vObj.children.length] = obj;
+	}
+	return obj;
+}
+function fillTree(vTreeID){
+	var aList = Array();
+	var obj   = null;
+	obj = addChild(aList,null,"01","a01",{p1:'a11',p2:'a11'});
+	addChild(aList,obj ,"0101","a0101",{p1:'a0111',p2:'a0111'});
+	addChild(aList,obj ,"0102","a0102",{p1:'a0211',p2:'a0211'});
+	
+	obj =  addChild(aList,null,"02","a02",{p1:'a22',p2:'a22'});
+	addChild(aList,obj ,"0201","a0201",{p1:'a0122',p2:'a0122'});
+	addChild(aList,obj ,"0202","a0202",{p1:'a0222',p2:'a0222'});
+	addChild(aList,null,"03","a03",{p1:'a33',p2:'a33'});
+	addChild(aList,null,"04","a04",{p1:'a44',p2:'a44'});
+	addChild(aList,null,"05","a05",{p1:'a55',p2:'a55'});
+	fillTreeEx(vTreeID,aList)
+}
+
+function addData(aList,itemid,productid,listprice,unitcost,attr1,vstatus){
+	if(aList==null) return ;
+	var obj = new Object();
+	obj["itemid"   ] = itemid   ;
+	obj["productid"] = productid;
+	obj["listprice"] = listprice;
+	obj["unitcost" ] = unitcost ;
+	obj["attr1"    ] = attr1    ;
+	obj["status"   ] = vstatus    ;
+	
+	aList[aList.length] = obj;
+}
+function fillGridData(){
+	var aList = new Array();
+	var hGrid = null;
+	addData(aList,"01","101","121","81","青窖01","s");
+	addData(aList,"02","102","122","82","青窖02","s");
+	addData(aList,"03","103","123","83","青窖03","s");
+	addData(aList,"04","104","124","84","青窖04","s");
+	addData(aList,"05","105","125","85","青窖05","s");
+	addData(aList,"06","106","126","86","青窖06","s");
+	addData(aList,"07","107","127","87","青窖07","s");
+	addData(aList,"08","101","121","81","青窖01","s");
+	addData(aList,"09","102","122","82","青窖02","s");
+	addData(aList,"10","103","123","83","青窖03","s");
+	addData(aList,"11","104","124","84","青窖04","s");
+	addData(aList,"12","105","125","85","青窖05","s");
+	addData(aList,"13","106","126","86","青窖06","s");
+	addData(aList,"14","107","127","87","青窖07","s");
+	addData(aList,"15","101","121","81","青窖01","s");
+	addData(aList,"16","102","122","82","青窖02","s");
+	addData(aList,"17","103","123","83","青窖03","s");
+	addData(aList,"18","104","124","84","青窖04","s");
+	addData(aList,"19","105","125","85","青窖05","s");
+	addData(aList,"20","106","126","86","青窖06","s");
+	addData(aList,"21","107","127","87","青窖07","s");
+	addData(aList,"22","101","121","81","青窖01","s");
+	addData(aList,"23","102","122","82","青窖02","s");
+	addData(aList,"24","103","123","83","青窖03","s");
+	addData(aList,"25","104","124","84","青窖04","s");
+	addData(aList,"26","105","125","85","青窖05","s");
+	addData(aList,"27","106","126","86","青窖06","s");
+	addData(aList,"28","107","127","87","青窖07","s");
+	addData(aList,"29","107","127","87","青窖07","s");
+	addData(aList,"30","106","126","86","青窖06","s");
+	
+	hGrid = $('#TBL_PROD');
+	if(hGrid!=null){
+		hGrid.datagrid('loadData',aList);
+	}
+}	
+
+var iIndex = 0;
+function testAddAccordion(vAccordion,fID,fTitle){
+	var vObj = new Object();
+	iIndex ++;
+	vObj.id    = "id_"+iIndex;
+	vObj.title = "title_"+iIndex;
+	addAccordion(vAccordion,vObj,fID,fTitle);
+	fillTree('Tree02');
+}
+
+
+function clearAccordion(vAccordion){
+	var hAccordion = null;
+	var hPanel     = null;
+	var hPanels    = null;
+	var iLoop      = 0;
+	var iLoopNum   = 0;
+	var iPanelIdx  = null;
+	if(vAccordion==null ) return null;
+	if(typeof(vAccordion)=="string"){
+		hAccordion = $('#'+vAccordion);
+	}else{
+		hAccordion = vAccordion;
+	}
+	if(hAccordion==null) return ;
+	hPanels  = hAccordion.accordion("panels");
+	iLoopNum = 0;
+	if(hPanels!=null) iLoopNum=hPanels.length;
+	for(iLoop=iLoopNum;iLoop>=0;iLoop--){
+		hPanel   = hPanels[iLoop];
+		if(hPanel==null) continue;
+		iPanelIdx= hAccordion.accordion('getPanelIndex', hPanel);
+		if(iPanelIdx==null) continue;
+		hAccordion.accordion("remove",iPanelIdx);
+	}
+}
+function removeAccordion(vAccordion,vTitle){
+	var hAccordion = null;
+	var hPanel     = null;
+	if(vAccordion==null ) return null;
+	if(vTitle    ==null ) vTitle ="";
+	if(typeof(vAccordion)=="string"){
+		hAccordion = $('#'+vAccordion);
+	}else{
+		hAccordion = vAccordion;
+	}
+	if(hAccordion==null) return ;
+	if(vTitle==""){
+		hPanel = hAccordion.accordion("getSelected");
+		if (hPanel==null) return ;
+		vTitle = pnl.panel("options").title;
+	}
+	if(vTitle==null || vTitle=="") return ;
+	hAccordion.accordion("remove",vTitle);
+}
+function addAccordion(vAccordion,vObj,fKey,fTitle){
+	//http://blog.csdn.net/xundh/article/details/44455495
+	var hAccordion = null;
+	var vItemId    = null;
+	var vItemTitle = null;
+	var vItem      = null;
+	var vContent   = "";
+	if(vAccordion==null || vObj==null) return null;
+	if(typeof(vAccordion)=="string"){
+		hAccordion = $('#'+vAccordion);
+	}else{
+		hAccordion = vAccordion;
+	}
+	if(hAccordion==null) return ;
+	if(fKey  ==null || fKey  =="") fKey   = "id";
+	if(fTitle==null || fTitle=="") fTitle = "title";
+	vItemId    = vObj[fKey];
+	vItemTitle = vObj[fTitle];
+	
+	if(vItemId   ==null || vItemId   =="") return ;
+	if(vItemTitle==null || vItemTitle=="") return ;
+	vContent="<div class=\"easyui-panel\" data-options=\"selected:true\" \n"
+			+"style=\"padding:1px;width:100%;height:100%\">\n"
+			+"<ul class=\"easyui-tree\" id=\"Tree02\">"
+			+""+vItemTitle+"</div>";
+	
+	//margin:1px;
+	vContent="<div class=\"easyui-panel\" data-options=\"selected:true\" \n"
+			+"style=\"padding:1px;width:100%;height:100%\">\n"
+			+"<ul class=\"easyui-tree\" id=\"Tree02\" />"
+			+"</div>";
+	
+	vItem = new Object();
+	vItem.title    = vItemTitle;
+	vItem.selected = true;
+	vItem.content  = vContent;
+	vItem.style    = "padding:1px;";
+	hAccordion.accordion('add',vItem);
+}
+
+function addTabsPanel(vTabsId,vTitle,vUrl,vIcon,bIframe){
+	var hEasyTabs = null;
+	var vContent  = "";
+	var vTabItem  = null;
+	var vHref     = null;
+	if(bIframe==null || typeof(bIframe)!="boolean") bIframe= true;
+	if(vIcon==null || vIcon=="") vIcon = "icon-default";
+	if(vTitle==null || vTitle ==""){
+		alert("标题不能够为空");
+		return ;
+	}
+	if(typeof(vTabsId)=="string"){
+		hEasyTabs = $('#'+vTabsId);
+	}else if(typeof(vTabsId)=="object"){
+		hEasyTabs = vTabsId;
+	}
+	if(hEasyTabs==null) return ;
+	
+	if (hEasyTabs.tabs('exists', vTitle)){    
+        hEasyTabs.tabs('select', vTitle);
+        return ;
+    }
+    
+	if(vUrl==null || vUrl==""){
+		vContent = vTitle ;
+	}else{
+		vContent = '<iframe scrolling="no" frameborder="2"  src="'+vUrl+'" style="width:100%; ;"></iframe>';
+		if(false==bIframe){
+			vHref = vUrl;
+		}
+	}
+	vTabItem = new Object();
+	vTabItem.title   = vTitle;
+	vTabItem.closable= true  ;
+	vTabItem.iconCls = vIcon;
+	if(vHref!=null){
+		vTabItem.href    = vUrl;
+	}else{
+		vTabItem.content = vContent;
+	}
+	hEasyTabs.tabs('add',vTabItem); 
+}
+function fucClickMe11111(hMe){
+	if(hMe==null){
+		alert("main page  哈哈,你是谁?需要我帮忙吗?");
+		return ;
+	}
+	alert("main page "+hMe.id);
+}
+
+</script>
+</head>
+<body style="padding:0;margin:0;">
+<div class="easyui-layout" style="width:100%;" id="mylayer" data-options="fit:true,border:false">
+	<div data-options="region:'north'" style="height:50px ;  background-color : rgb(3,157,222) ; " >
+		<div class="headleft" ><img src="img/logo.png" /></div>
+		<div class="headmiddle" ></div>
+		<div class="headright" > 
+			<a href = "#"  ><img src="img/action1.PNG" border="0" /> </a>
+			<a href = "#"   ><img src="img/action1.PNG"  border="0"/></a>
+			<img src="img/action1.PNG" />
+			<img src="img/action1.PNG" />
+		</div>
+	</div>
+	<div data-options="region:'south',split:true" style="height:50px;">south</div>
+	<div data-options="region:'east',split:true" title="East" style="width:100px;">
+		east<br/>
+		<input type="button" value="getNode" onclick="fucGetNode('Tree01')"/>
+		<input type="button" value="加载树1" onclick="fillTree('Tree01')"/>
+		<input type="button" value="加载树2" onclick="fillTree('Tree02')"/>
+		<input type="button" value="AddAccordion" onclick="testAddAccordion('accordion_01','id','title')"/>
+		<input type="button" value="delAccordion" onclick="removeAccordion('accordion_01','Title2')"/>
+		<input type="button" value="clearAccordion" onclick="clearAccordion('accordion_01')"/>
+		
+		
+		
+		<input type="button" value="加载Grid数据" onclick="fillGridData()"/>
+		
+		<input type="button" value="Tabs加载"   onclick="addTabsPanel('MainTabs','test'     ,'./aaaa1.html',null,true)"/>
+		<input type="button" value="Href加载"   onclick="addTabsPanel('MainTabs','demoPage' ,'./demo_page.htm',null,false)"/>
+		<input type="button" value="iframe加载" onclick="addTabsPanel('MainTabs','iDemoPage','./demo_page.htm',null,true)"/>
+	</div>
+	<div data-options="region:'west',split:true" title="West" style="width:200px;" >
+		<div id="accordion_01" class="easyui-accordion" data-options="fit:true,border:false" >
+			<div title="Title1" style="padding:1px;" >
+				<div class="easyui-panel" data-options="selected:true" style="width:100%;height:100%">
+				<ul class="easyui-tree" id="Tree01" ></ul>
+			</div>		
+			</div>
+			<div title="Title2" style="padding:1px;">Title2</div>
+			<div title="Title3" style="padding:10px">Title3</div>
+		</div>
+	</div>
+	<div data-options="region:'center',title:'Main Title',iconCls:'icon-ok'">
+		<div id="MainTabs" class="easyui-tabs" style="width:100%;height:100%">
+			<div title="My Documents" style="padding:10px">
+				<table class="easyui-datagrid" id="TBL_PROD" name="TBL_PROD"
+						data-options="singleSelect:true,fit:true,fitColumns:true">
+					<thead>
+						<tr>
+							<th data-options="field:'itemid'" width="80">Item ID</th>
+							<th data-options="field:'productid'" width="100">Product ID</th>
+							<th data-options="field:'listprice',align:'right'" width="80">List Price</th>
+							<th data-options="field:'unitcost',align:'right'" width="80">Unit Cost</th>
+							<th data-options="field:'attr1'" width="150">Attribute</th>
+							<th data-options="field:'status',align:'center'" width="50">Status</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div title="Help" data-options="iconCls:'icon-help',closable:true" style="padding:10px">
+				This is the help content. 
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

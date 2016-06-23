@@ -18,27 +18,15 @@
 	height : 45px;
 	 
 }
-.headmiddle  {
-	 float : left;
-	 
-	 height : 45px;
-	 background-color : rgb(3,157,222) ; 
-	 
-}
+ 
 .headright   {
-	width : 300px;
+	width : 500px;
 	height : 45px;
-	float : right;
+	//float : right;
 	background-color : rgb(3,157,222) ; 
 	 
 }
-.headright  img {
-	width : 23%;
-	height : 45px;
-	 
-	
-	
-}
+
 
 .headright a:hover img{
 	filter:alpha(Opacity=30);-moz-opacity:0.3;opacity: 0.3  ;

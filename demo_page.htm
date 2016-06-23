@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>菜单信息</title>
+<script language="JavaScript">
+function fucClickMe(hMe){
+	if(hMe==null){
+		alert("demo page  哈哈,你是谁?需要我帮忙吗?");
+		return ;
+	}
+	alert("demo page "+hMe.id);
+}
+</script>
+</head>
+<body onload="fucInitForm();">
+<table style="width:100%;" height="70%" width="95%" align="center">
+<tr><td>菜单信息
+	<INPUT class="cls_btn xFbutton" id="cmdSave" name="cmdSave"  onClick="fucClickMe(this)"         type="button" value="ClickMe" valign="right">
+</td></tr>
+<tr><td>
+		<form id="frmMain" name="frmMain" method="post" onkeydown="keyForm(this,event);">
+		<fieldset style="bsample:1 solid #7D90B8;padding:1px;0px;4px;0px;height:100%;width:99%;" align="left" >
+		<legend style="color:#990000">菜单信息</legend>
+			<input type="hidden" name="menu_id"  value="">
+			<input type="hidden" name="up_menu_id"  value="">
+			<table cellspacing="" cellpadding="1" width="100%">
+			<tr>
+				<td width="1%" nowrap class="tdt">菜单名称</td>
+				<td width="24%" nowrap class="tdd"  >
+					<input id="menu_name" name="menu_name" type="text"  class="cls_input" style="width:96%" 
+					 min="0" desc="菜单名称" data_type="string"  MaxLength="100" >
+				</td>
+				<td width="1%" nowrap class="tdt">界面名称</td>
+				<td width="24%" nowrap class="tdd"  >
+					<input id="form_name" name="form_name" type="text"  class="cls_input" style="width:96%" 
+					 min="0" desc="界面名称" data_type="string"  MaxLength="100" >
+				</td>
+				<td width="1%" nowrap class="tdt">上级菜单</td>
+				<td width="23%" nowrap class="tdd"  >
+					<input name="up_menu_name" id="up_menu_name"  type="text" 
+					maxlength="30" _fn="up_menu_name"   style="width:96%;" readonly />
+				</td>
+				<td width="1%" nowrap class="tdt">
+					<input class="cls_btn xFbutton" name="cmdMenu"  onClick="fucQryMenu();" type="button" value="选择" valign="left"/>
+				</td>
+			</tr>
+			<tr>
+				<td width="1%" nowrap class="tdt">显示类型</td>
+				<td width="24%" nowrap class="tdd"  >
+					<input id="show_type" name="show_type" type="text"  class="cls_input" style="width:96%" 
+					 min="0" desc="显示类型" data_type="string"  MaxLength="10" >
+				</td>
+				<td width="1%" nowrap class="tdt">参数信息</td>
+				<td width="24%" nowrap class="tdd"  >
+					<input id="params" name="params" type="text"  class="cls_input" style="width:96%" 
+					 min="0" desc="参数信息" data_type="string"  MaxLength="100" >
+				</td>
+			</tr>
+			<tr>
+				<td width="1%" nowrap class="tdt">导航URL</td>
+				<td width="24%" nowrap class="tdd" colspan="9" >
+					<input id="url" name="url" type="text"  class="cls_input" style="width:99%" 
+					 min="0" desc="菜单图片" data_type="string"  MaxLength="100" >
+				</td>
+				</tr>
+				<tr>
+				<td width="1%" nowrap class="tdt">菜单图片</td>
+				<td width="24%" nowrap class="tdd" colspan="9" >
+					<input id="pic" name="pic" type="text"  class="cls_input" style="width:99%" 
+					 min="0" desc="菜单图片" data_type="string"  MaxLength="100" >
+				</td>
+			</tr>			
+			</table>
+		</fieldset>
+		</form>
+</td></tr>
+</table>
+</body>
+</html>

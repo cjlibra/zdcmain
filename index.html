@@ -29,42 +29,21 @@
     
 	<div class="easyui-layout" style="width:100%;" id="mylayer" data-options="fit:true,border:false">
 		<div data-options="region:'north'" style="height:50px ;  background-color : rgb(3,157,222) ; " >
-			<!--<div style="padding:0px;width:100%;border:0px solid #ccc">
-				<a href="#" class="easyui-menubutton" menu="#mm1" iconCls="icon-edit">Edit</a>
-				 <a href="#" class="easyui-menubutton" menu="#mm2" iconCls="icon-help">Help</a>
-				</div>
-				<div id="mm1" style="width:150px;">
-				 <div iconCls="icon-undo">Undo</div>
-				 <div iconCls="icon-redo">Redo</div>
-				 <div class="menu-sep"></div>
-				 <div>Cut</div>
-				 <div>Copy</div>
-				 <div>Paste</div>
-				 <div class="menu-sep"></div>
-				 <div iconCls="icon-remove">Delete</div>
-				 <div>Select All</div>
-				</div>
-				<div id="mm2" style="width:100px;">
-				 <div>Help</div>
-				 <div>Update</div>
-				 <div>About</div>
-				</div>-->
-			<div class="headleft" > 
-			<img src="img/logo.png" />
+		<div class="headleft" ><img src="./res/easyui/img/logo.png" /></div>
+		<div class="headmiddle" ></div>
+		<div style="background-color:rgb(3,157,222);"> 
+			<a href="#" onclick="fucMoveApp(4,false);">
+				<img src="./res/images/app/arrow_l1.png" border="0" style="float:left;width:15px;height:45px;"/>
+			</a>
+			<div class="headright" id="DivApp"> 
+				<a href = "#"  ><img src="./res/easyui/img/action1.png" border="0" /> </a>
+				<img src="./res/easyui/img/action1.png" />
 			</div>
-			
-			<div class="headmiddle" > 
-			</div>
-			
-			<div class="headright" > 
-			<a href = "#"  ><img src="img/action1.PNG" border="0" /> </a>
-			<a href = "#"   ><img src="img/action1.PNG"  border="0"/></a>
-			<img src="img/action1.PNG" />
-			<img src="img/action1.PNG" />
-			</div>
-
-		
+			<a href="#" onclick="fucMoveApp(4,true);">
+				<img src="./res/images/app/arrow_r1.png" border="0" style="float:right;width:15px;height:45px;"/>
+			</a>
 		</div>
+	</div>
 		<div data-options="region:'south',split:true" style="height:30px;"></div>
 		<div data-options="region:'east',split:true" title="东方" style="width:180px;">
 		<div   class="easyui-accordion" data-options="fit:true,border:false">
