@@ -19,6 +19,12 @@
 	<script type="text/javascript" src="jquery-easyui-1.4.5/jquery.min.js"></script>
 	<script type="text/javascript" src="jquery-easyui-1.4.5/jquery.easyui.min.js"></script>
 	<script type="text/javascript" src="js/webui.js"></script>
+	<script type="text/javascript">
+	
+	//document.domain ="trimps.ac.cn"
+	
+	
+	</script>
 	 
 	
  <link rel="stylesheet" type="text/css" href="css/css.css">
@@ -220,8 +226,42 @@
 
 
 				</div>
-				<div title="事件"   style="padding:10px">  
+				<div title="事件"   style="padding:10px"   >  
 				<p>你好你好你早早啊政府顶顶顶顶顶顶顶顶顶顶顶顶顶顶</p>
+				<script type="text/javascript" language="javascript">   
+function iFrameHeight() {  
+ 
+var ifm= document.getElementById("iframepage");   
+//var subWeb =  document.frames["iframepage"].document  ;   
+if(ifm != null ) {
+  
+  // ifm.height = subWeb.body.scrollHeight;
+  // ifm.height = $("#amaintab").height();
+   console.log(ifm.height )
+  //  ifm.height =  ifm.document.scrollHeight;
+	 ifm.height = 2000;
+	// $("#amaintab").height("4000");
+  // ifm.width = $("#amaintab").width();
+   console.log(ifm.width )
+  // ifm.width = 1000;
+   //ifm.width = subWeb.body.scrollWidth;
+}   
+}   
+
+function iiii(){
+var frame = document.getElementById('iframepage'), 
+    win = frame.contentWindow, 
+    doc = win.document, 
+    html = doc.documentElement, 
+    body = doc.body; 
+
+// 获取高度 
+var height = Math.max( body.scrollHeight, body.offsetHeight,html.clientHeight, html.scrollHeight, html.offsetHeight ); 
+frame.setAttribute('height', height);
+
+}
+</script>
+				<iframe src="http://www.trimps.ac.cn"  id="iframepage" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0"  width="100%" height="100%" onLoad="iFrameHeight()" ></iframe>
 				</div>
 			</div>
 		</div>

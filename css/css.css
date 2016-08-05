@@ -62,3 +62,12 @@
 	
 	
 }
+
+.myframe {
+	frameborder : 0 ;
+	width: 600px;
+	height:300px;
+	scrolling: no;
+	
+	
+}
